@@ -9,7 +9,8 @@ def main():
 
      screen = pygame.display.set_mode((SCREEN_WIDTH,SCREEN_HEIGHT))
      Black = (0,0,0)
-     while():
+     x = 0
+     while(x < 1):
           for event in pygame.event.get():
                if event.type == pygame.QUIT:
                     return
@@ -17,7 +18,7 @@ def main():
 
 
 
-          screen.display.flip()
+          pygame.display.flip()
 
 if __name__ == "__main__":
      main()
