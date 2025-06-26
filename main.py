@@ -5,6 +5,11 @@ from constants import *
 def main():
      pygame.init()
      Clock = pygame.time.Clock()
+     updatable = pygame.sprite.Group()
+     drawable = pygame.sprite.Group()
+
+     Player.containers = (updatable, drawable)
+
      player = Player(SCREEN_WIDTH/2,SCREEN_HEIGHT/2)
      dt = 0
      print("Starting Asteroids!")
@@ -19,12 +24,16 @@ def main():
                if event.type == pygame.QUIT:
                     return
           screen.fill(Black)
-          player.update(dt)
-          player.draw(screen)
+          updatable.update(dt)
+          for drawables in drawable:
+               drawables.draw(screen)
 
           Clock.tick(60)
           dt = Clock.tick(60)/1000
           pygame.display.flip()
+          keys = pygame.key.get_pressed()
+          if keys[pygame.K_ESCAPE]:
+               return
           
 
 if __name__ == "__main__":
