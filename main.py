@@ -40,7 +40,7 @@ def main():
                     return
                for shot in shots:
                     if obj.checkCollision(shot) is True:
-                         obj.kill()
+                         obj.split()
                          shot.kill()
                      
 
